@@ -32,3 +32,5 @@
 ## Security & Configuration
 - Never commit secrets; keep API keys in local `docker/.env*`.
 - Report vulnerabilities via `opensource-studio@coze.cn` instead of public issues.
+
+**Always respond in Chinese-simplified**
