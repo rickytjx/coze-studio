@@ -237,7 +237,7 @@ beforeEach(() => {
 
 ## 依赖注入测试
 
-项目中广泛使用 InversifyJS 进行依赖注入。测试时通常通过 `createContainer` 工厂函数创建独立的容器实例，绑定 Mock 服务。
+工作流引擎（`@coze-workflow/*`）使用 InversifyJS 进行依赖注入。测试时通过 `createContainer` 工厂函数创建独立的容器实例，绑定 Mock 服务。
 
 ```typescript
 // __tests__/create-container.ts

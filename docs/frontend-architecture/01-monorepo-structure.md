@@ -52,7 +52,7 @@ PNPM 负责底层的依赖管理，配置位于 `common/config/rush/pnpm-config.
     "@coze-arch/coze-design": "0.0.7-alpha.985c0d"
   }
   ```
-- **构建黑名单**: `canvas`, `better-sqlite3` (在全局层面禁止构建，可能使用预编译二进制)
+- **构建黑名单**: `canvas`, `better-sqlite3` (在全局层面禁止构建，使用预编译二进制)
 
 ## 4. Rush 实验性功能
 

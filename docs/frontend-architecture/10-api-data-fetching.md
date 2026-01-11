@@ -208,7 +208,7 @@ uploader.start(fileKey);
 1. **优先使用 SDK**：始终优先使用 `@coze-arch/bot-api` 导出的服务实例，而不是直接使用 axios。
 2. **类型安全**：利用 TypeScript 类型提示，避免手动定义请求/响应结构。
 3. **错误处理**：
-   - 一般错误让全局 Toast 处理。
-   - 特殊业务错误使用 `try-catch` 捕获并设置 `__disableErrorToast: true`。
+   - 未设置 `__disableErrorToast` 的错误由全局 Toast 处理。
+   - 需要特殊处理的业务错误使用 `try-catch` 捕获并设置 `__disableErrorToast: true`。
 4. **流式数据**：对于对话等流式响应，使用 `fetch-stream` 或 `HttpChunk` 机制（ChatSDK 内部封装）。
 5. **资源清理**：使用 WebSocket 或 Uploader 时，务必在组件卸载时调用 `destroy` 或 `close` 方法。

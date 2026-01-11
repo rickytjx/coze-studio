@@ -1,10 +1,10 @@
-# Foundation Layer
+# 基础服务层 (Foundation Layer)
 
-Foundation Layer 是前端架构中的基石，负责承载账号、空间、全局配置、本地存储等核心基础设施能力。它通过分层设计和 Adapter 模式，实现了业务逻辑的解耦以及开源版与商业版的差异化适配。
+基础服务层是前端架构中的基石，负责承载账号、空间、全局配置、本地存储等核心基础设施能力。它通过分层设计和 Adapter 模式，实现了业务逻辑的解耦以及开源版与商业版的差异化适配。
 
 ## 概述
 
-Foundation Layer 位于 Application Layer 之下，Infrastructure Layer 之上，通过 `foundation-sdk` 向应用层提供统一的接口。其核心职责包括：
+基础服务层（位于 `frontend/packages/foundation`，包含 16 个包）位于应用层之下，架构基础设施层之上，通过 `foundation-sdk` 向应用层提供统一的接口。其核心职责包括：
 
 - **账号体系 (Account System)**: 管理用户登录状态、用户信息、权限信息的获取与更新。
 - **空间管理 (Space System)**: 处理 Team/Personal 空间的创建、切换、列表获取及轮询同步。

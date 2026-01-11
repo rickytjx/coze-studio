@@ -1,7 +1,7 @@
-# Frontend Architecture - Common Layer
+# 通用组件层 (Common Layer)
 
 ## 概述
-Common Layer (位于 `frontend/packages/common`) 是 Coze Studio 前端架构的核心支撑层，包含约 30 个 Rush 项目（以 `rush.json` 中 `frontend/packages/common/*` 前缀统计）。它向下封装基础库和适配层，向上为业务层提供可复用的核心模块和功能组件。
+通用组件层（位于 `frontend/packages/common`）是 Coze Studio 前端架构的核心支撑层，包含 30 个包（统计口径：目录下 `package.json` 文件数量）。它向下封装基础库和适配层，向上为业务层提供可复用的核心模块和功能组件。
 
 该层级的设计目标是高内聚、低耦合，通过清晰的模块划分和严格的依赖控制，确保核心功能的稳定性与扩展性。
 
@@ -9,8 +9,8 @@ Common Layer (位于 `frontend/packages/common`) 是 Coze Studio 前端架构的
 
 Common Layer 主要由以下六大核心系统组成：
 
-### 1. Chat Area 生态系统 (14个包)
-Chat Area 是 Coze Studio 中最核心的交互区域，负责处理所有的对话交互、消息流转和插件渲染。
+### 1. Chat Area 生态系统
+Chat Area（位于 `frontend/packages/common/chat-area/`，包含 14 个包）是 Coze Studio 中最核心的交互区域，负责处理所有的对话交互、消息流转和插件渲染。
 
 *   **chat-core**: 核心 SDK。
     *   **核心功能**: 消息管理、通信通道抽象、插件系统内核、凭证管理。
@@ -22,8 +22,7 @@ Chat Area 是 Coze Studio 中最核心的交互区域，负责处理所有的对
 *   **chat-area**: 主容器。
     *   **功能**: 集成 chat-core 和 chat-uikit，提供完整的插件化聊天界面。
     *   **扩展性**: 提供 `ReadonlyChatAreaPlugin` 和 `WriteableChatAreaPlugin` 接口。
-    *   **生命周期服务**: `App` (应用级), `Message` (消息级), `Command` (指令级), `Render` (渲染级)。
-*   **插件生态 (8个)**:
+*   **插件子包**（目录下以 `plugin-` 或功能前缀命名的 8 个包）:
     *   `plugin-chat-shortcuts`: 快捷指令支持 (`/` 唤起)。
     *   `plugin-chat-background`: 聊天背景定制。
     *   `plugin-message-grab`: 消息抓取/选择功能。
@@ -37,7 +36,7 @@ Chat Area 是 Coze Studio 中最核心的交互区域，负责处理所有的对
 适配并封装 `@flowgram.ai` 引擎，支持工作流的画布编辑能力。
 
 *   **common**: 通用适配层。
-    *   **版本**: 基于 `@flowgram.ai` 0.1.28。
+    *   **依赖**: `@flowgram.ai/*` 0.1.28（参考 `frontend/packages/common/flowgram-adapter/common/package.json:21-24`）。
     *   **职责**: 抹平底层引擎差异，提供统一的 Event 和 Model 接口。
 *   **fixed-layout-editor**: 固定布局编辑器。
     *   适用于结构化强、自动布局的场景。

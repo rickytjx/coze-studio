@@ -39,15 +39,15 @@ rushx dev
 
 ## 3. 包结构分类
 
-项目采用分层架构，主要包分类如下：
+项目采用分层架构，主要包分类如下（统计口径：各目录下 `package.json` 文件数量）：
 
-- **packages/arch/** (约 37 个 Rush 项目): 架构基础设施层，提供底层核心能力。
-- **packages/common/** (30+ packages): 通用组件层，包含业务无关的基础 UI 和逻辑组件。
-- **packages/foundation/** (15+ packages): 基础功能层，提供应用级的基础服务。
-- **packages/studio/** (30+ packages): Studio 核心业务层，实现编辑器、插件等核心功能。
-- **packages/workflow/** (15+ packages): 工作流引擎层，负责流程编排与执行。
-- **packages/agent-ide/** (40+ packages): Agent IDE 专用功能模块。
-- **packages/data/** (15+ packages): 数据层，负责数据模型定义与持久化。
+- **packages/arch/** (37 个包): 架构基础设施层，提供底层核心能力。
+- **packages/common/** (30 个包): 通用组件层，包含业务无关的基础 UI 和逻辑组件。
+- **packages/foundation/** (16 个包): 基础服务层，提供应用级的基础服务。
+- **packages/studio/** (29 个包): Studio核心业务层，实现编辑器、插件等核心功能。
+- **packages/workflow/** (21 个包): 工作流引擎层，负责流程编排与执行。
+- **packages/agent-ide/** (48 个包): Agent IDE 层，AI Agent 集成开发环境。
+- **packages/data/** (23 个包): 数据层，知识库、数据库与变量管理系统。
 
 ## 4. 文档目录导航
 
@@ -58,8 +58,8 @@ rushx dev
 | 01 | [Monorepo架构与构建系统](./01-monorepo-structure.md) | 详解 Rush.js 配置、依赖管理及 Rsbuild 构建流程 |
 | 02 | [架构基础设施层](./02-arch-layer.md) | `packages/arch` 核心模块设计与底层能力解析 |
 | 03 | [通用组件层](./03-common-layer.md) | `packages/common` 组件库设计与使用规范 |
-| 04 | [基础设施层](./04-foundation-layer.md) | `packages/foundation` 基础服务与工具库介绍 |
-| 05 | [Studio业务层](./05-studio-layer.md) | `packages/studio` 核心业务逻辑与模块划分 |
+| 04 | [基础服务层](./04-foundation-layer.md) | `packages/foundation` 基础服务与工具库介绍 |
+| 05 | [Studio核心业务层](./05-studio-layer.md) | `packages/studio` 核心业务逻辑与模块划分 |
 | 06 | [工作流引擎层](./06-workflow-layer.md) | `packages/workflow` 编排引擎与节点实现机制 |
 | 07 | [主应用架构](./07-main-app.md) | `apps/coze-studio` 应用入口、路由与启动流程 |
 | 08 | [状态管理模式](./08-state-management.md) | 基于 Zustand 的全局状态设计与最佳实践 |
@@ -67,6 +67,8 @@ rushx dev
 | 10 | [API与数据获取](./10-api-data-fetching.md) | 网络请求封装、接口管理与数据缓存策略 |
 | 11 | [测试基础设施](./11-testing.md) | 单元测试、集成测试配置与编写指南 |
 | 12 | [依赖关系图谱](./12-dependency-graph.md) | 模块间依赖关系可视化与分层原则 |
+| 13 | [Agent IDE层](./13-agent-ide-layer.md) | `packages/agent-ide` AI Agent 集成开发环境模块 |
+| 14 | [数据层](./14-data-layer.md) | `packages/data` 知识库、数据库与变量管理系统 |
 
 ---
 

@@ -1,10 +1,10 @@
-# 工作流层 (Workflow Layer) Architecture
+# 工作流引擎层 (Workflow Engine Layer)
 
-工作流层是 Coze Studio 的核心引擎，负责工作流的编辑、编排、执行调试及变量管理。该层采用高度模块化的架构，基于 React + TypeScript 构建，利用 FlowGram 适配器自带的容器模块与注入机制（ContainerModule、lazyInject）实现依赖管理，并深度集成 FlowGram.ai 渲染引擎。
+工作流引擎层是 Coze Studio 的核心引擎，负责工作流的编辑、编排、执行调试及变量管理。该层采用高度模块化的架构，基于 React + TypeScript 构建，利用 FlowGram 适配器自带的容器模块与注入机制（ContainerModule、lazyInject）实现依赖管理，并深度集成 FlowGram.ai 渲染引擎。
 
 ## 1. 概览
 
-工作流层包含约 14 个核心包，提供以下关键能力：
+工作流引擎层包含 21 个包（统计口径：`frontend/packages/workflow/` 目录下 `package.json` 文件数量），提供以下关键能力：
 - **可视化编排**：基于 Canvas 的节点拖拽与连线。
 - **变量系统**：强类型的变量定义、引用与作用域管理。
 - **表达式引擎**：支持 `{{ variable.path }}` 语法的动态表达式编辑。
@@ -34,15 +34,21 @@
 
 定义了系统的通用语言。
 
-- **ViewVariableType**: 核心变量类型枚举。
+- **ViewVariableType**: 核心变量类型枚举（摘录，完整定义见源文件）。
   ```typescript
+  // 源码路径: frontend/packages/workflow/base/src/types/view-variable-type.ts:22-60
   export enum ViewVariableType {
     String = 1,
     Integer,
     Boolean,
+    Number,
     Object = 6,
+    Image,
+    File,
+    // ... 更多文件类型 (Doc, Code, Ppt, Txt, Excel, Audio, Zip, Video, Svg, Voice, Time)
     ArrayString = 99,
-    // ...
+    ArrayInteger,
+    // ... 更多数组类型
   }
   ```
 - **WorkflowJSON**: 工作流序列化格式。

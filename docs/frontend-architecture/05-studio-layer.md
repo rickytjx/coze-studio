@@ -1,10 +1,10 @@
-# Studio Layer 架构文档
+# Studio核心业务层 (Studio Layer)
 
-Studio Layer 是 Coze Studio 前端的**核心业务层**，负责承载具体的业务逻辑实现。该层通过组合各个基础设施层（Foundation, Arch）的能力，提供完整的工作空间管理、状态管理、插件系统、Mock 数据编辑以及开放平台集成等功能。
+Studio核心业务层是 Coze Studio 前端的**核心业务层**，负责承载具体的业务逻辑实现。该层通过组合基础服务层（Foundation）和架构基础设施层（Arch）的能力，提供完整的工作空间管理、状态管理、插件系统、Mock 数据编辑以及开放平台集成等功能。
 
 ## 1. 概述
 
-Studio Layer 包含约 29 个 Rush 项目（以 `rush.json` 中 `frontend/packages/studio/*` 前缀统计），是业务逻辑最密集的区域。它向下依赖 `arch` 和 `foundation` 层，向上支撑 `frontend/apps/coze-studio` 应用层。
+Studio核心业务层包含 29 个包（统计口径：`frontend/packages/studio/` 目录下 `package.json` 文件数量），是业务逻辑最密集的区域。它向下依赖架构基础设施层（arch）和基础服务层（foundation），向上支撑 `frontend/apps/coze-studio` 应用层。
 
 **核心职责：**
 *   **工作空间管理**：提供 IDE 的整体布局、菜单、项目管理。
@@ -112,7 +112,7 @@ Studio Layer 的包主要分布在 `frontend/packages/studio/` 目录下，按�
     *   Base 包不依赖具体的 UI 库实现细节，只定义核心逻辑和接口。
 
 2.  **Context Provider 模式**:
-    *   广泛使用 React Context 将 Store 注入组件树，实现模块间的解耦。
+    *   使用 React Context 将 Store 注入组件树，实现模块间的解耦。
 
 3.  **适配器模式 (Adapter Pattern)**:
     *   大量的 `*-adapter` 包表明架构设计上极度重视可替换性和扩展性。例如，项目实体、编辑器、发布流程都通过适配器接入。

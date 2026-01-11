@@ -103,7 +103,7 @@ graph TD
 ```
 
 ### 4.2 路由配置示例
-路由配置位于 `src/routes/index.tsx`，广泛使用了 Loader 属性来传递布局配置（如是否显示侧边栏 `hasSider`）。
+路由配置位于 `src/routes/index.tsx`，使用 Loader 属性传递布局配置（如是否显示侧边栏 `hasSider`）。
 
 ```typescript
 {
@@ -123,7 +123,7 @@ graph TD
 所有主要页面组件均通过 `src/routes/async-components.tsx` 进行懒加载，以优化首屏性能。
 
 - 使用 `React.lazy()` 动态 `import` 组件。
-- 大部分组件来自 monorepo 中的其他包（如 `@coze-foundation/space-ui-adapter`, `@coze-agent-ide/entry-adapter`），实现了业务模块的解耦。
+- 组件来自 monorepo 中的其他包（如 `@coze-foundation/space-ui-adapter`, `@coze-agent-ide/entry-adapter`），实现了业务模块的解耦。
 
 ## 5. 布局系统
 
@@ -131,7 +131,7 @@ graph TD
 
 - **GlobalLayout**: 顶层布局，包含顶部导航栏、全局 Context 初始化 (`useAppInit`)。
 - **SpaceLayout / SpaceIdLayout**: 工作空间层级的布局，包含左侧项目列表或功能菜单。
-- **AgentIDELayout**: Agent 编辑器的专用布局，通常全屏展示，隐藏标准侧边栏。
+- **AgentIDELayout**: Agent 编辑器的专用布局，全屏展示，隐藏标准侧边栏。
 - **PluginLayout**: 插件开发页面的布局。
 
 ## 6. 状态管理
@@ -139,7 +139,7 @@ graph TD
 状态管理采用多层级、多 Store 的策略，主要基于 **Zustand**，并结合 **React Context** 处理依赖注入。
 
 ### 6.1 Zustand Store 架构
-所有 Store 均采用标准模式创建，广泛使用 `devtools` 和 `subscribeWithSelector` 中间件，并结合 `Immer` 处理复杂状态更新。
+Store 采用标准模式创建，使用 `devtools` 和 `subscribeWithSelector` 中间件，结合 `Immer` 处理状态更新。
 
 #### 核心 Store 分类
 
@@ -223,7 +223,7 @@ export const useXxxStore = create<State & Action>()(
 
 - **Agent IDE 层**: `@coze-agent-ide/*`
 - **项目 IDE 层**: `@coze-project-ide/*`, `@coze-studio/project-publish`
-- **工作流层**: `@coze-workflow/*`
+- **工作流引擎层**: `@coze-workflow/*`
 - **工作空间层**: `@coze-foundation/space-ui-*`, `@coze-studio/workspace-*`
 - **基础设施**: `@coze-foundation/*`, `@coze-arch/*`
 

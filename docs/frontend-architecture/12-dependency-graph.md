@@ -7,7 +7,7 @@ Coze Studio 前端架构由 259+ 个 Rush 项目组成（包含内部业务包�
 ## 依赖层级架构
 
 ### Level 1 - 基础设施层
-这是架构的最底层，通常无内部依赖或仅有极少量的同层依赖。它们提供了项目的基础构建块。
+这是架构的最底层，无内部依赖或仅有同层依赖。它们提供了项目的基础构建块。
 
 - **配置包**: `eslint-config`, `ts-config`, `stylelint-config`, `tailwind-config`, `vitest-config`, `rsbuild-config`
 - **核心工具**: `utils`, `logger`, `bot-error`, `bot-flags` (特性开关), `bot-typings` (全局类型), `bot-env`, `web-context`
@@ -94,18 +94,18 @@ graph TD
 
 ## 共享依赖分析
 
-### 最广泛使用的内部包
-这些包是整个系统的基石，变更影响范围极广。
+### 高引用量内部包
+这些包是整个系统的基石，变更影响范围广。引用数据基于 `rush.json` 依赖分析。
 
 1. **@coze-arch/bot-api** (80+ 引用): API 请求定义的中心仓库。
 2. **@coze-arch/bot-semi** (60+ 引用): UI 组件的基础封装。
 3. **@coze-arch/i18n** (50+ 引用): 国际化支持。
 4. **@coze-arch/logger** (40+ 引用): 统一日志记录。
 5. **@coze-arch/bot-flags** (40+ 引用): 特性开关管理。
-6. **@coze-arch/bot-typings** (100+ devDeps): 通用类型定义。
+6. **@coze-arch/bot-typings** (196 devDeps): 通用类型定义。
 
-### 最广泛使用的外部包
-系统高度依赖的第三方库。
+### 高引用量外部包
+系统依赖的核心第三方库。引用数据基于 `common/config/subspaces/default/pnpm-lock.yaml` 分析。
 
 1. **react/react-dom** ~18.2.0: 核心视图库（所有 UI 包）。
 2. **lodash-es** ^4.17.21 (40+ 引用): 通用工具函数。
@@ -123,7 +123,7 @@ graph TD
 - `react-router-dom` ^6.11.1
 
 ### 状态管理
-- `zustand` ^4.4.7: 轻量级状态管理，广泛使用。
+- `zustand` ^4.4.7: 轻量级状态管理（30+ 包引用）。
 - `immer` ^10.0.3: 不可变数据结构处理。
 - `@tanstack/react-query` ~5.13.4: 服务端状态管理。
 
@@ -144,18 +144,18 @@ graph TD
 ## 架构模式
 
 ### Adapter-Base 模式
-为了隔离具体实现和接口定义，项目中广泛使用了 Adapter-Base 模式。
+为了隔离具体实现和接口定义，项目采用 Adapter-Base 模式（参考 `frontend/packages/` 目录中的 `*-base` 和 `*-adapter` 包对）。
 - **Base 包**: 定义接口 (Interface) 和基础抽象类，位于较低层级。
-- **Adapter 包**: 提供具体实现 (Implementation)，依赖 Base 包，通常位于较高层级或同级。
-这种模式允许在不同环境下（如 Web、VSCode 插件、Electron）替换底层实现而不影响业务逻辑。
+- **Adapter 包**: 提供具体实现 (Implementation)，依赖 Base 包，位于较高层级或同级。
+这种模式用于隔离接口定义与具体实现。
 
 ### 分层架构 (Layered Architecture)
 严格遵守单向依赖原则：
 `Level 4 (App) -> Level 3 (Feature) -> Level 2 (Core) -> Level 1 (Infra) -> External`
 禁止反向依赖。
 
-### 领域驱动设计 (DDD) 倾向
-包的组织结构倾向于按业务领域划分，例如：
+### 按业务领域划分的包结构
+包的组织结构按业务领域划分（参考 `frontend/packages/` 目录结构）：
 - `arch`: 架构基础设施
 - `foundation`: 基础业务能力
 - `common`: 通用业务逻辑
@@ -170,4 +170,4 @@ graph TD
 - 每个包在 `rush.json` 的 `projects[*].tags` 中标记其层级 (如 `level-1`, `level-2` 等)。
 - 通过 Rush 插件或自定义 Lint 规则检查：**Level N 的包只能依赖 Level N-1 及以下的包（或同层级，视具体严格程度而定）。**
 - 这确保了依赖图的有向无环特性 (DAG)。
-- 注：具体检查规则配置位于 `rush-plugins` 目录或相关 Lint 配置中。
+- 注：具体检查规则配置位于 `common/autoinstallers/plugins/rush-plugins/@coze-arch/rush-dep-level-check-plugin/` 目录。
