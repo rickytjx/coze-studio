@@ -160,8 +160,8 @@ Common Layer 的架构设计遵循以下主要模式：
 ## 技术栈
 
 *   **Core Framework**: React 18
-*   **State Management**: Zustand 4.4.7 (轻量级状态管理)
-*   **UI Library**: Semi Design 2.72.3 (基于字节跳动设计系统的组件库)
-*   **Workflow Engine**: FlowGram 0.1.28 (流程编排引擎)
+*   **State Management**: Zustand ^4.4.7 (轻量级状态管理)
+*   **UI Library**: Semi Design ~2.72.3 (基于字节跳动设计系统的组件库)
+*   **Workflow Engine**: FlowGram 0.1.28 (流程编排引擎，精确版本锁定)
 *   **Code Editor**: CodeMirror 6 (用于 Prompt 和代码编辑)
 *   **Communication**: EventSource (SSE), WebSocket, Mitt (Event Bus)

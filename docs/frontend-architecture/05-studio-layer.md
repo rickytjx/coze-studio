@@ -119,8 +119,8 @@ Studio Layer 的包主要分布在 `frontend/packages/studio/` 目录下，按�
 
 ## 5. 技术栈概览
 
-*   **框架**: React 18.2.0
-*   **状态管理**: Zustand 4.4.7 (配合 Immer 10.0.3)
+*   **框架**: React ~18.2.0
+*   **状态管理**: Zustand ^4.4.7 (配合 Immer ^10.0.3)
 *   **构建工具**: Rspack (用于 SDK), Rush (Monorepo 管理)
 *   **编辑器**: Monaco Editor
 *   **拖拽**: react-dnd 16.0.1

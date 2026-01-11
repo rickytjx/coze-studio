@@ -7,9 +7,9 @@
 Coze Studio 是一个专业的 AI Agent 开发平台，其前端应用构建于现代 Web 技术栈之上，旨在提供高性能、可扩展且用户体验卓越的开发环境。
 
 - **核心定位**: AI Agent 集成开发环境 (IDE)
-- **技术基础**: React 18 + TypeScript 5.8.2
+- **技术基础**: React 18 + TypeScript ~5.8.2
 - **架构模式**: 基于 Rush.js + PNPM 的 Monorepo 架构 (包含 259+ 个包)
-- **构建系统**: Rsbuild 1.1.0 (基于 Rspack 的高性能构建工具)
+- **构建系统**: Rsbuild ~1.1.0 (基于 Rspack 的高性能构建工具)
 - **主应用入口**: `frontend/apps/coze-studio`
 
 ### 快速启动命令
@@ -30,16 +30,16 @@ rushx dev
 | 领域 | 技术方案 | 说明 |
 |------|----------|------|
 | **UI 框架** | React 18, Semi Design, Custom Coze Design | 结合 Semi Design 基础组件与 Coze 定制设计系统 |
-| **语言** | TypeScript 5.8.2 | 全面使用 TypeScript 保证代码类型安全 |
-| **状态管理** | Zustand 4.4.7, Immer | 轻量级、高性能的全局状态管理方案 |
+| **语言** | TypeScript ~5.8.2 | 全面使用 TypeScript 保证代码类型安全 |
+| **状态管理** | Zustand ^4.4.7, Immer ^10.0.3 | 轻量级、高性能的全局状态管理方案 |
 | **样式方案** | Tailwind CSS, Less, CSS Modules | 原子化 CSS 与模块化 CSS 结合，兼顾开发效率与样式隔离 |
 | **构建工具** | Rsbuild (Rspack) | 极速的开发与构建体验 |
-| **测试框架** | Vitest 3.0.5 | 兼容 Jest API 的高性能单元测试框架 |
+| **测试框架** | Vitest ~3.0.5 | 兼容 Jest API 的高性能单元测试框架 |
 | **国际化** | i18next | 完善的多语言支持体系 |
 
 ## 3. 包结构分类
 
-项目采用分层架构，主要包分类如下（统计口径：各目录下 `package.json` 文件数量）：
+项目采用分层架构，主要包分类如下（统计口径：各目录下顶层子目录的 `package.json` 文件数量，不含嵌套子包）：
 
 - **packages/arch/** (37 个包): 架构基础设施层，提供底层核心能力。
 - **packages/common/** (30 个包): 通用组件层，包含业务无关的基础 UI 和逻辑组件。
@@ -69,6 +69,20 @@ rushx dev
 | 12 | [依赖关系图谱](./12-dependency-graph.md) | 模块间依赖关系可视化与分层原则 |
 | 13 | [Agent IDE层](./13-agent-ide-layer.md) | `packages/agent-ide` AI Agent 集成开发环境模块 |
 | 14 | [数据层](./14-data-layer.md) | `packages/data` 知识库、数据库与变量管理系统 |
+
+---
+
+## 5. 版本标记说明
+
+本文档中的依赖版本使用 [Semver 范围表达式](https://docs.npmjs.com/cli/v6/using-npm/semver)，与 `package.json` 保持一致：
+
+| 符号 | 含义 | 示例 |
+|------|------|------|
+| `~` | 允许补丁版本更新 (patch) | `~1.1.0` 匹配 `1.1.x` |
+| `^` | 允许次版本更新 (minor) | `^4.4.7` 匹配 `4.x.x` |
+| 无符号 | 精确版本锁定 | `9.1.1` 仅匹配 `9.1.1` |
+
+> **版本覆盖机制**: `common/config/rush/pnpm-config.json` 中的 `globalOverrides` 会覆盖 `package.json` 声明的版本。当两者存在差异时，以 `globalOverrides` 为准（如 `react`、`typescript` 等核心依赖被全局锁定到精确版本以确保一致性）。
 
 ---
 

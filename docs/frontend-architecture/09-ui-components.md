@@ -91,9 +91,9 @@ graph TD
 
 ### 3.1 技术架构
 - **预处理器**: Less + CSS Modules (`.module.less`)
-- **原子类框架**: Tailwind CSS 3.3.3
+- **原子类框架**: Tailwind CSS ~3.3.3
 - **后处理器**: PostCSS (支持 nesting, import)
-- **Lint工具**: Stylelint 15.11.0
+- **Lint工具**: Stylelint ^15.11.0
 
 ### 3.2 Tailwind 配置 (`@coze-arch/tailwind-config`)
 

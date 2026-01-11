@@ -4,17 +4,17 @@
 
 ## 概述
 
-前端项目采用 [Vitest 3.0.5](https://vitest.dev/) 作为核心测试框架。为了在 Monorepo 架构下保持配置的一致性与可维护性，我们通过 `@coze-arch/vitest-config` 提供了三种标准化的预设配置，分别适用于不同的测试场景。
+前端项目采用 [Vitest ~3.0.5](https://vitest.dev/) 作为核心测试框架。为了在 Monorepo 架构下保持配置的一致性与可维护性，我们通过 `@coze-arch/vitest-config` 提供了三种标准化的预设配置，分别适用于不同的测试场景。
 
 ## 测试框架
 
 核心技术栈版本如下：
 
-- **测试运行器**: `Vitest 3.0.5`
-- **React 组件测试**: `@testing-library/react 14.1.2`
-- **DOM 断言**: `@testing-library/jest-dom 6.1.5`
-- **代码覆盖率**: `@vitest/coverage-v8 3.0.5`
-- **DOM 环境**: `happy-dom 12.10.3`
+- **测试运行器**: `Vitest ~3.0.5`
+- **React 组件测试**: `@testing-library/react ^14.1.2`
+- **DOM 断言**: `@testing-library/jest-dom ^6.1.5`
+- **代码覆盖率**: `@vitest/coverage-v8 ~3.0.5`
+- **DOM 环境**: `happy-dom ^12.10.3`
 
 ## 测试配置架构
 

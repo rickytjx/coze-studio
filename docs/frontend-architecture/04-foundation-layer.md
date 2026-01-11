@@ -214,7 +214,7 @@ sequenceDiagram
 
 ## 技术栈
 
-- **状态管理**: [Zustand](https://github.com/pmndrs/zustand) (v4.4.7) - 轻量级、基于 Hooks 的状态管理。
-- **不可变数据**: [Immer](https://github.com/immerjs/immer) (v10.0.3) - 简化复杂状态的更新逻辑。
-- **Hooks 库**: [ahooks](https://github.com/alibaba/hooks) (v3.7.8) - 提供高质量的 React Hooks。
-- **事件通信**: [eventemitter3](https://github.com/primus/eventemitter3) (v5.0.1) - 高性能的事件发射器，用于 LocalStorage 服务。
+- **状态管理**: [Zustand](https://github.com/pmndrs/zustand) (^4.4.7) - 轻量级、基于 Hooks 的状态管理。
+- **不可变数据**: [Immer](https://github.com/immerjs/immer) (^10.0.3) - 简化复杂状态的更新逻辑。
+- **Hooks 库**: [ahooks](https://github.com/alibaba/hooks) (^3.7.8) - 提供高质量的 React Hooks。
+- **事件通信**: [eventemitter3](https://github.com/primus/eventemitter3) (^5.0.1) - 高性能的事件发射器，用于 LocalStorage 服务。

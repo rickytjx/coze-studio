@@ -6,9 +6,9 @@ Coze Studio 前端架构采用了以 **Zustand** 为核心的响应式状态管�
 
 | 核心库 | 版本 | 用途 |
 | :--- | :--- | :--- |
-| **Zustand** | v4.4.7 | 核心状态管理，提供极简的 Hook API |
-| **Immer** | v10.0.3 | 简化不可变数据结构的更新逻辑 |
-| **Ahooks** | 3.7.8 (pnpm-config.json 全局锁定) | 配合 React Hooks 管理部分组件级状态 |
+| **Zustand** | ^4.4.7 | 核心状态管理，提供极简的 Hook API |
+| **Immer** | ^10.0.3 | 简化不可变数据结构的更新逻辑 |
+| **Ahooks** | ^3.7.8 | 配合 React Hooks 管理部分组件级状态 |
 
 项目的 Store 文件分布于 `frontend/packages/foundation/` 和 `frontend/packages/studio/stores/` 目录，覆盖从全局配置到具体业务模块的各个层面。
 

@@ -10,9 +10,9 @@ Coze Studio 前端采用基于 Rush.js 和 PNPM 的大规模 Monorepo 架构，�
 | --- | --- | --- |
 | **架构模式** | Rush.js + PNPM | 微软 Rush 方案，适合大规模 Monorepo |
 | **包管理器** | PNPM 8.15.8 | 高效的磁盘空间利用和依赖安装 |
-| **构建工具** | Rsbuild 1.1.0 | 基于 Rspack 的高性能构建工具 |
-| **前端框架** | React 18.2.0 | 核心 UI 库 |
-| **语言** | TypeScript 5.8.2 | 全面启用严格模式 |
+| **构建工具** | Rsbuild ~1.1.0 | 基于 Rspack 的高性能构建工具 |
+| **前端框架** | React ~18.2.0 | 核心 UI 库 |
+| **语言** | TypeScript ~5.8.2 | 全面启用严格模式 |
 | **Monorepo 工具** | Rush 5.147.1 | 依赖分析、增量构建、并行执行 |
 | **Runtime** | Node.js >= 21 | 开发环境要求 |
 | **包规模** | ~260 个 Projects | 包含应用、库、工具、配置等 |
